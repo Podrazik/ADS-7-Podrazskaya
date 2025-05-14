@@ -5,20 +5,17 @@ Train::Train() : countOp(0), first(nullptr) {}
 
 Train::~Train() {
     if (!first) return;
-  
     if (first->next == first) {
       delete first;
       first = nullptr;
       return;
     }
-  
     Car* currentCar = first->next;
     while (currentCa != first) {
       Car* tmp = current;
       current = current->next;
       delete tmp;
     }
-  
     delete first;
     first = nullptr;
   }
@@ -68,7 +65,7 @@ int Train::getLenght() {
 
     while (true) {
         currentCar = first;
-        carAmount =1;
+        carAmount = 1;
 
         if (!currentCar->light) {
             currentCar->light = true;
@@ -93,5 +90,4 @@ int Train::getLenght() {
     int Train::getOpCount() {
         return countOp;
     }
-
 }
