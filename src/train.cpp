@@ -18,7 +18,7 @@ Train::~Train() {
     }
     delete first;
     first = nullptr;
-  }
+}
 
 void Train::addCar(bool light) {
     Car* newCar = new Car{light, nullptr, nullptr};
@@ -28,11 +28,11 @@ void Train::addCar(bool light) {
         newCar->next = newCar;
         newCar->prev = newCar;
     } else {
-        Car* last = first->prev;
+        Car* lastCar = first->prev;
         newCar->next = first;
-        newCar->prev = last;
+        newCar->prev = lastCar;
         first->prev = newCar;
-        last->next = newCar;
+        lastCar->next = newCar;
         first = newCar;
     }
 }
@@ -85,9 +85,9 @@ int Train::getLenght() {
         if (!first->light) {
             return carAmount
         }
-    }
-
-    int Train::getOpCount() {
-        return countOp;
-    }
 }
+
+int Train::getOpCount() {
+        return countOp;
+}
+
