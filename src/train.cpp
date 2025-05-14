@@ -54,7 +54,7 @@ int Train::getLength() {
             curCar->light = true;
         }
 
-        current = current->next;
+        curCar = curCar->next;
         countOp += 2;
 
         while (!curCar->light) {
@@ -63,7 +63,7 @@ int Train::getLength() {
             carAmount++;
         }
 
-        current->light = false;
+        curCar->light = false;
 
         if (!first->light) {
             return carAmount;
