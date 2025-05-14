@@ -25,40 +25,40 @@ int Train::getLenght() {
     if (first->next == first) return 1;
 
     countOp = 0;
-    Car* currentCar = first;
+    Car* curCar = first;
     int carAmount = 1;
 
-    if (!currentCar->light) {
-        currentCar->light = true;
+    if (!curCar->light) {
+        curCar->light = true;
     }
 
-    currentCar = currentCar->next;
+    curCar = curCar->next;
     countOp += 2;
 
-    while (!currentCar->light) {
-        currentCar = currentCar->next;
+    while (!curCar->light) {
+        curCar = curCar->next;
         countOp += 2;
         carAmount++;
     }
-    currentCar->light = false;
+    curCar->light = false;
 
     if (!first->light) {
         return carAmount;
     }
 
     while (true) {
-        currentCar = first;
+        curCar = first;
         carAmount = 1;
 
-        if (!currentCar->light) {
-            currentCar->light = true;
+        if (!curCar->light) {
+            curCar->light = true;
         }
 
         current = current->next;
         countOp += 2;
 
-        while (!currentCar->light) {
-            currentCar = currentCar->next;
+        while (!curCar->light) {
+            curCar = curCar->next;
             countOp += 2;
             carAmount++;
         }
@@ -82,8 +82,8 @@ Train::~Train() {
       first = nullptr;
       return;
     }
-    Car* currentCar = first->next;
-    while (currentCar != first) {
+    Car* curCar = first->next;
+    while (curCar != first) {
       Car* tmp = current;
       current = current->next;
       delete tmp;
