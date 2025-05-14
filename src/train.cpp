@@ -20,7 +20,7 @@ void Train::addCar(bool light) {
     }
 }
 
-int Train::getLenght() {
+int Train::getLength() {
     if (!first) return 0;
     if (first->next == first) return 1;
 
