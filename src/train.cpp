@@ -66,7 +66,7 @@ int Train::getLength() {
         current->light = false;
 
         if (!first->light) {
-            return carAmount
+            return carAmount;
         }
     }
 }
@@ -84,8 +84,8 @@ Train::~Train() {
     }
     Car* curCar = first->next;
     while (curCar != first) {
-      Car* tmp = current;
-      current = current->next;
+      Car* tmp = curCar;
+      curCar = curCar->next;
       delete tmp;
     }
     delete first;
