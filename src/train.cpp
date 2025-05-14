@@ -3,23 +3,6 @@
 
 Train::Train() : countOp(0), first(nullptr) {}
 
-Train::~Train() {
-    if (!first) return;
-    if (first->next == first) {
-      delete first;
-      first = nullptr;
-      return;
-    }
-    Car* currentCar = first->next;
-    while (currentCa != first) {
-      Car* tmp = current;
-      current = current->next;
-      delete tmp;
-    }
-    delete first;
-    first = nullptr;
-}
-
 void Train::addCar(bool light) {
     Car* newCar = new Car{light, nullptr, nullptr};
 
@@ -91,3 +74,19 @@ int Train::getOpCount() {
         return countOp;
 }
 
+Train::~Train() {
+    if (!first) return;
+    if (first->next == first) {
+      delete first;
+      first = nullptr;
+      return;
+    }
+    Car* currentCar = first->next;
+    while (currentCar != first) {
+      Car* tmp = current;
+      current = current->next;
+      delete tmp;
+    }
+    delete first;
+    first = nullptr;
+}
